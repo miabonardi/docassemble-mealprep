@@ -1,0 +1,53 @@
+metadata:
+  title: Default playground interview
+  short title: Test
+  comment: This is a learning tool.  Feel free to write over it.
+---
+objects:
+  - client: Individual
+---
+question: |
+  What is your name?
+fields:
+  - First Name: client.name.first
+  - Middle Name: client.name.middle
+    required: False
+  - Last Name: client.name.last
+  - Suffix: client.name.suffix
+    required: False
+    code: name_suffix()
+---
+question: |
+  What is your date of birth?
+fields:
+  - Date of Birth: client.birthdate
+    datatype: date
+---
+mandatory: True
+question: |
+  Here is your document, ${ client }.
+subquestion: |
+  In order ${ quest }, you will need this.
+attachments:
+  - name: Information Sheet
+    filename: info_sheet
+    content: |
+      Your name is ${ client }.
+
+      % if client.age_in_years() > 60:
+      You are a senior.
+      % endif
+      Your quest is ${ quest }.  You
+      are eligible for ${ benefits }.
+---
+question: |
+  What is your quest?
+fields:
+  - Your quest: quest
+    hint: to find the Loch Ness Monster
+---
+code: |
+  if client.age_in_years() < 18:
+    benefits = "CHIP"
+  else:
+    benefits = "Medicaid"
