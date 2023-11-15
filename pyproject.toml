@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "docassemble-catassembler"
+version = "0.1.0"
+description = "Bellingcat Hackathon project"
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+PyGithub = "^2.1.1"
+python-dotenv = "^1.0.0"
+docassemble = "^1.4.85"
+docassemble-base = "^1.4.85"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.26.0"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
