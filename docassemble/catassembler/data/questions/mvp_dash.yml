@@ -1,3 +1,5 @@
+include:
+  - shared.yml
 ---
 mandatory: True
 code: |
@@ -10,10 +12,10 @@ question: |
   Dashboard 
 field: dashboard
 buttons:
-  - ukraine-timemap: http://ukraine.bellingcat.com/
+  - ukraine-timemap: http://ukraine.bellingcat.com/ 
     image: search
   - vis-tj-kg-map-2022: https://bellingcat.github.io/vis-tj-kg-map-2022/
     image: search
-  - .github: ${ interview_url(i=user_info().package + ":conduct_contriuting.yml", reset=1) }
+  - .github: ${ interview_url(i=user_info().package + ":conduct_contributing.yml", reset=1) }
     image: search
 ---

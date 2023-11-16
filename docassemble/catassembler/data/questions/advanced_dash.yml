@@ -1,3 +1,5 @@
+include:
+  - shared.yml
 ---
 mandatory: True
 code: |
@@ -25,3 +27,12 @@ question: |
 subquestion: |
   Here's the repos: ${ fetch_bellingcat_repos() }
 continue button field: dashboard
+---
+#question: |
+#  ${ x.repo_name } 
+#subquestion: |
+#  ${ x.repo_des } 
+#
+#  ${ x.readme }
+#field: x.dashboard
+#---

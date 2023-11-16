@@ -1,0 +1,15 @@
+include:
+  - docassemble.AssemblyLine:assembly_line.yml
+---
+metadata:
+  title: |
+    Dashboard
+  short title: |
+    Dashboard
+  authors:
+    - Laurynas Keturakis
+    - Mia Bonardi
+---
+code: |
+  AL_ORGANIZATION_TITLE = "UI for CLI"
+---
