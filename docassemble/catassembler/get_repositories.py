@@ -1,12 +1,12 @@
 from github import Github, Auth
-from docassemble.base.util import get_config
+from docassemble.base.util import get_config, DARedis
 
-fetched_repos = [] # basic in-memory cache so we don't have to fetch repos every time
+r = DARedis()
 
 def fetch_bellingcat_repos():
     repos = []
 
-    global fetched_repos
+    fetched_repos = r.get("bellingcat_repos")
 
     if len(fetched_repos) > 0:
         return fetched_repos
@@ -26,7 +26,7 @@ def fetch_bellingcat_repos():
                 }
                 repos.append(data)
 
-    fetched_repos = repos
+    r.set("bellingcat_repos", repos)
 
     return repos
 
