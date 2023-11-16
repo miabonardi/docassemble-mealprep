@@ -3,9 +3,6 @@ mandatory: True
 code: |
   command('exit', url=dashboard)
 ---
-modules:
-  - .get_repositories
----
 features: 
   css: al_dashboard.css
 ---
@@ -20,9 +17,3 @@ buttons:
   - .github: ${ interview_url(i=user_info().package + ":conduct_contriuting.yml", reset=1) }
     image: search
 ---
-question: |
-  Programmatic Dashboard
-
-subquestion: |
-  Here's the repos: ${ get_repositories() }
-field: dashboard
