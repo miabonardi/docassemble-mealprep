@@ -13,7 +13,8 @@ def fetch_bellingcat_repos():
 
     with GithubClient() as gh:
         for repo in gh.get_organization(login="bellingcat").get_repos():
-            if "python" and "command-line" in repo.get_topics():
+            tags = repo.get_topics()
+            if "python" and "command-line" in tags and "gui" not in tags: # grab all python clis excluding ones with gui
                 data = {
                     "name": repo.name,
                     "description": repo.description,
