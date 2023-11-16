@@ -15,8 +15,8 @@ def fetch_bellingcat_repos():
 
 class GithubClient(Github):
     def __enter__(self):
-        username = get_config("oauth github id")
-        password = get_config("oauth github secret")
+        username = get_config("oauth", {}).get("github", {}).get("id")
+        password = get_config("oauth", {}).get("github", {}).get("secret")
 
         if username is None or password is None:
             raise Exception("Missing Github OAuth credentials")
