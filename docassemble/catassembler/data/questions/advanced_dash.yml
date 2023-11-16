@@ -20,7 +20,7 @@ buttons:
 code: |
   myoptions = []
   for repo in fetch_bellingcat_repos():
-    myoptions.append({ interview_url(i=user_info().package + ":generic_repos.yml", name=repo.name, reset=1): repo.name, "image": "search"})
+    myoptions.append({ interview_url(i=user_info().package + ":generic_repos.yml", name=repo['name'], reset=1): repo['name'], "image": "search"})
 ---
 code: |
   repos = fetch_bellingcat_repos()

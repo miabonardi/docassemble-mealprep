@@ -4,27 +4,25 @@ include:
 modules:
   - .get_repositories
 ---
+mandatory: True
+question: |
+  ${ current_repo['name'] } 
+subquestion: |
+  ${ current_repo['description'] } 
+  
+  ${ current_repo['license'] }
+  
+  % if current_repo['readme']:
+  ${ current_repo['readme'] }
+  % endif
+  
+  ${ current_repo['url'] }
+---
 code: |
   repos = fetch_bellingcat_repos()
   current_repo = None
   
   for repo in repos: 
-    log(repo.name)
-    log(url_args.get('name'))
-    if url_args.get('name') == repo.name:
-      log("FOUND")
+    if url_args.get('name') == repo['name']:
       current_repo = repo
 ---
-mandatory: True
-question: |
-  ${ current_repo.name } 
-subquestion: |
-  ${ current_repo.description } 
-  
-  ${ current_repo.license }
-  
-  % if current_repo.readme:
-  ${ current_repo.readme }
-  % endif
-  
-  ${ current_repo.url }
