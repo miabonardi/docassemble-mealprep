@@ -1,0 +1,38 @@
+include:
+  - nav.yml
+---
+modules:
+  - .get_repositories
+---
+code: |
+  repos = fetch_bellingcat_repos()
+---
+code: |
+  current_repo = None
+  if len(repos) == 0:
+    raise Exception("Repos empty")
+  
+  for repo in repos: 
+    log("repo['name']", repo['name'])
+    if url_args.get('name') == repo['name']:
+      log("FOUND")
+      current_repo = repo
+---
+mandatory: True
+question: |
+  Amsterdam
+subquestion: 
+  ${ url_args.get('name') }
+  ${ repo['name'] }
+continue button field: amsterdam
+---
+question: |
+  ${ current_repo.name } 
+subquestion: |
+  ${ current_repo.description } 
+  
+  ${ current_repo.license }
+  
+  ${ current_repo.readme }
+  
+  ${ current_repo.url }
