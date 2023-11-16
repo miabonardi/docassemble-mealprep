@@ -11,28 +11,34 @@ modules:
 features: 
   css: al_dashboard.css
 ---
-#question: |
-#  Dashboard 
-#field: dashboard
-#buttons:
-#  - ukraine-timemap: http://ukraine.bellingcat.com/
-#    image: search
-#  - vis-tj-kg-map-2022: https://bellingcat.github.io/vis-tj-kg-map-2022/
-#    image: search
-#  - .github: ${ interview_url(i=user_info().package + ":conduct_contriuting.yml", reset=1) }
-#    image: search
----
 question: |
-  Programmatic Dashboard
-subquestion: |
-  Here's the repos: ${ fetch_bellingcat_repos() }
-continue button field: dashboard
+  Dashboard 
+field: dashboard
+buttons:
+  code: myoptions
+---
+code: |
+  myoptions = []
+  for repo in fetch_bellingcat_repos():
+    myoptions.append({ interview_url(name=repo['name'], reset=1): repo['name'], "image": "search"})
+---
+code: |
+  repos = fetch_bellingcat_repos()
 ---
 #question: |
-#  ${ x.repo_name } 
+#  ${ repo.name } 
 #subquestion: |
-#  ${ x.repo_des } 
+#  ${ repo.description } 
 #
-#  ${ x.readme }
-#field: x.dashboard
+#  ${ repo.url }
+#  
+#  ${ repo.license }
+#  
+#  ${ repo.readme }
 #---
+#question: |
+#  Programmatic Dashboard
+#subquestion: |
+#  Here's the repos: ${ fetch_bellingcat_repos() }
+#continue button field: dashboard
+---
