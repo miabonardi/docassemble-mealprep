@@ -8,7 +8,7 @@ def fetch_bellingcat_repos():
 
     fetched_repos = r.get("bellingcat_repos")
 
-    if len(fetched_repos) > 0:
+    if fetched_repos is not None and len(fetched_repos) > 0:
         return fetched_repos
 
     with GithubClient() as gh:
