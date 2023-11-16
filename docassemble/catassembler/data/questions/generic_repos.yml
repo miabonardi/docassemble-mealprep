@@ -1,5 +1,6 @@
 include:
   - nav.yml
+  - shared.yml
 ---
 modules:
   - .get_repositories
@@ -13,10 +14,15 @@ subquestion: |
   ${ current_repo['license'] }
   
   % if current_repo['readme']:
-  ${ current_repo['readme'] }
+  ${ display_template(template, scrollable=True, collapse=True) }
   % endif
   
-  ${ current_repo['url'] }
+  ${ action_button_html(current_repo['url'], label="View on Github") }
+---
+template: template
+subject: README
+content: |
+  ${ current_repo['readme'] }
 ---
 code: |
   repos = fetch_bellingcat_repos()
