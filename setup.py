@@ -54,7 +54,7 @@ setup(name='docassemble.catassembler',
       url='https://apps.uiforcli.com',
       packages=find_packages(),
       namespace_packages=['docassemble'],
-      install_requires=["pygithub"],
+      install_requires=['PyGithub>=2.1.1'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/catassembler/', package='docassemble.catassembler'),
      )
