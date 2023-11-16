@@ -9,11 +9,11 @@ def fetch_bellingcat_repos():
     fetched_repos = r.get_data("bellingcat_repos")
 
     if fetched_repos is not None and len(fetched_repos) > 0:
-        log("Using cached repos", priority="console")
+        log("Using cached repos", priority="log")
         return fetched_repos
 
     with GithubClient() as gh:
-        log("Fetching repos from Github", priority="console")
+        log("Fetching repos from Github", priority="log")
         for repo in gh.get_organization(login="bellingcat").get_repos():
             tags = repo.get_topics()
             if "python" and "command-line" in tags and "gui" not in tags: # grab all python clis excluding ones with gui
