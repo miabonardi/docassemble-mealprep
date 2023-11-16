@@ -13,3 +13,6 @@ metadata:
 code: |
   AL_ORGANIZATION_TITLE = "UI for CLI"
 ---
+default screen parts:
+  pre: |
+  
