@@ -18,6 +18,9 @@ class GithubClient(Github):
         username = get_config("oauth github id")
         password = get_config("oauth github secret")
 
+        if username is None or password is None:
+            raise Exception("Missing Github OAuth credentials")
+
         auth = Auth.Login(username, password)
         self = Github(auth=auth)
         return self
