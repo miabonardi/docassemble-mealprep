@@ -6,7 +6,7 @@ r = DARedis()
 def fetch_bellingcat_repos():
     repos = []
 
-    fetched_repos = r.get("bellingcat_repos")
+    fetched_repos = r.get_data("bellingcat_repos")
 
     if fetched_repos is not None and len(fetched_repos) > 0:
         return fetched_repos
@@ -26,7 +26,7 @@ def fetch_bellingcat_repos():
                 }
                 repos.append(data)
 
-    r.set("bellingcat_repos", repos)
+    r.set_data("bellingcat_repos", repos)
 
     return repos
 
