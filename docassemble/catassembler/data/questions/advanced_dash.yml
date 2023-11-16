@@ -1,0 +1,27 @@
+---
+mandatory: True
+code: |
+  command('exit', url=dashboard)
+---
+modules:
+  - .get_repositories
+---
+features: 
+  css: al_dashboard.css
+---
+#question: |
+#  Dashboard 
+#field: dashboard
+#buttons:
+#  - ukraine-timemap: http://ukraine.bellingcat.com/
+#    image: search
+#  - vis-tj-kg-map-2022: https://bellingcat.github.io/vis-tj-kg-map-2022/
+#    image: search
+#  - .github: ${ interview_url(i=user_info().package + ":conduct_contriuting.yml", reset=1) }
+#    image: search
+---
+question: |
+  Programmatic Dashboard
+subquestion: |
+  Here's the repos: ${ fetch_bellingcat_repos() }
+continue button field: dashboard
