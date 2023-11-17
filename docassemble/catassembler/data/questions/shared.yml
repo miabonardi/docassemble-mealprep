@@ -3,16 +3,20 @@ include:
 ---
 metadata:
   title: |
-    Dashboard
+    Meal Prep
   short title: |
-    Dashboard
+    Meal Prep
   authors:
     - Laurynas Keturakis
     - Mia Bonardi
+---
+features:
+  progress bar: False
 ---
 code: |
   AL_ORGANIZATION_TITLE = "UI for CLI"
 ---
 default screen parts:
   pre: |
+  
   

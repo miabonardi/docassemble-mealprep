@@ -10,7 +10,7 @@ mandatory: True
 code: |
   show_repo_info
   show_args
-  test_storing
+  arg_download
 ---
 continue button field: show_args
 question: |
@@ -18,28 +18,29 @@ question: |
 fields: 
   code: arg_fields
 ---
-continue button field: test_storing
+continue button field: arg_download
 question: |
-  Success?
+  Download
 subquestion: |
-  * ${ current_repo['name'] }
-  
+  ```
+  ${ current_repo['name'] }
   % for arg in args:
     % if arg['flag']:
-      * ${ "--" + arg['name'] }
+      ${ "--" + arg['name'] }
     % else:
-      * ${ arg['name'] }
+      ${ arg['name'] }
     % endif
-    * ${ all_variables()[arg['name']] }
+    ${ all_variables()[arg['name']] }
   % endfor
+  ```
 --- 
 code: |
   arg_fields = []
   
   for arg in args: 
     arg_fields.append({
-      "label": arg.get("help_text", "None"),
-      "field": arg['name']
+      "label": arg.get("help_text", "Developer didn't add help text :("),
+      "field": arg['name'].replace("-","_")
     })
 ---
 continue button field: show_repo_info
@@ -55,10 +56,10 @@ subquestion: |
   % endif
   
   ${ action_button_html(current_repo['url'], label="View on Github") }
-  
-  % if current_repo['name'] == "instagram-location-search":
-  ${ action_button_html(interview_url(i=user_info().package + ":instagram-location-search.yml", reset=1), label="Run instagram-location-search") }
-  % endif
+---
+#% if current_repo['name'] == "instagram-location-search":
+#${ action_button_html(interview_url(i=user_info().package + ":instagram-location-search.yml", reset=1), label="Run instagram-location-search") }
+#% endif
 ---
 template: template
 subject: README
