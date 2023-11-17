@@ -64,6 +64,10 @@ def get_cli_args(repo):
 
 					for arg in node.args:
 						if isinstance(arg, ast.Str):
+							if arg.s.startswith("--"):
+								extracted_arg["flag"] = True 
+							else: 
+								extracted_arg["flag"] = False
 							extracted_arg["name"] = arg.s.replace("--", "")
 					for keyword in node.keywords:
 						if keyword.arg == "help":
