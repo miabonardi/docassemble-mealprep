@@ -1,6 +1,10 @@
 include:
   - docassemble.AssemblyLine:assembly_line.yml
 ---
+code: |
+  AL_ORGANIZATION_TITLE = "UI for CLI"
+  AL_ORGANIZATION_HOMEPAGE = "https://www.bellingcat.com"
+---
 metadata:
   title: |
     Meal Prep
@@ -12,9 +16,6 @@ metadata:
 ---
 features:
   progress bar: False
----
-code: |
-  AL_ORGANIZATION_TITLE = "UI for CLI"
 ---
 default screen parts:
   pre: |
