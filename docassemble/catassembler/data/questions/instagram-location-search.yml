@@ -1,0 +1,17 @@
+include:
+  - nav.yml
+  - shared.yml
+---
+mandatory: True
+question: |
+  Use instagram-location-search
+fields:
+  - cookie: cookie
+  - json: json
+  - geojson: geojson
+  - map: map
+  - csv: csv
+  - lat: lat
+  - lng: lng
+  - date: date
+  - ids: ids
