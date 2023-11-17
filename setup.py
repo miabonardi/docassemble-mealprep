@@ -45,7 +45,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
 
 setup(name='docassemble.catassembler',
       version='0.0.1',
-      description=('UI for CLI submission for Bellingcat Hackathon Fall 2023.'),
+      description=('UI4CLI submission for Bellingcat Hackathon Fall 2023.'),
       long_description="# docassemble.catassembler\r\n\r\nWith inspiration and source code from the Suffolk LIT Lab's Document Assembly Line Project, specifically the [ALDashboard]( https://github.com/SuffolkLITLab/docassemble-ALDashboard)\r\n\r\n## Authors\r\n\r\n Laurynas Keturakis, laurynas.keturakis@gmail.com\r\n Mia Bonardi, mia.e.bonardi@gmail.com\r\n\r\n",
       long_description_content_type='text/markdown',
       author=' Laurynas Keturakis & Mia Bonardi',
