@@ -7,6 +7,26 @@ modules:
   - .parse_cli_args
 ---
 mandatory: True
+code: |
+  show_repo_info
+  show_args
+---
+continue button field: show_args
+question: |
+  ${ current_repo['name'] }
+fields: 
+  code: arg_fields
+---
+code: |
+  arg_fields = []
+  
+  for arg in args: 
+    arg_fields.append({
+      "label": arg.get("help_text", "None"),
+      "field": arg['name']
+    })
+---
+continue button field: show_repo_info
 question: |
   ${ current_repo['name'] } 
 subquestion: |
@@ -23,7 +43,6 @@ subquestion: |
   % if current_repo['name'] == "instagram-location-search":
   ${ action_button_html(interview_url(i=user_info().package + ":instagram-location-search.yml", reset=1), label="Run instagram-location-search") }
   % endif
- 
 ---
 template: template
 subject: README
