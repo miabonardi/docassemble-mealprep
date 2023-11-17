@@ -7,7 +7,7 @@
 
 ## Demo
 
-Try it out at: [apps.uiforcli.com](apps.uiforcli.com)
+Try it out at: [apps.uiforcli.com](https://apps.uiforcli.com)
 
 ## **Disclaimer: Proof of Concept**
 
