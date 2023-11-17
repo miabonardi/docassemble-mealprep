@@ -28,7 +28,7 @@ def fetch_and_extract_root_file(repo):
 					contents_array = file_contents.split("\n")
 
 					for idx, line in enumerate(contents_array):
-						if "argparse" in line:
+						if "import argparse" in line:
 							print(f"Found: {contents_array[idx]} on line {idx + 1} in file {filename}")
 							root_file = {
 								"filename": filename,
