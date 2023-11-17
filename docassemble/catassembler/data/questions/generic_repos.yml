@@ -10,6 +10,7 @@ mandatory: True
 code: |
   show_repo_info
   show_args
+  test_storing
 ---
 continue button field: show_args
 question: |
@@ -17,6 +18,21 @@ question: |
 fields: 
   code: arg_fields
 ---
+continue button field: test_storing
+question: |
+  Success?
+subquestion: |
+  * ${ current_repo['name'] }
+  
+  % for arg in args:
+    % if arg['flag']:
+      * ${ "--" + arg['name'] }
+    % else:
+      * ${ arg['name'] }
+    % endif
+    * ${ all_variables()[arg['name']] }
+  % endfor
+--- 
 code: |
   arg_fields = []
   
