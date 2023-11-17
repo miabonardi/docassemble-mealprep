@@ -64,7 +64,7 @@ def get_cli_args(repo):
 
 					for arg in node.args:
 						if isinstance(arg, ast.Str):
-							extracted_arg["name"] = arg.s.replace("-", "")
+							extracted_arg["name"] = arg.s.replace("--", "")
 					for keyword in node.keywords:
 						if keyword.arg == "help":
 							extracted_arg["help_text"] = keyword.value.s
