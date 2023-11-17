@@ -22,21 +22,24 @@ event: arg_download
 question: |
   Next steps
 subquestion: |
-  1. Open [Google Colab](https://colab.new)
-  2. Paste ```!pip install ${ current_repo['name'] }``` and hit play
-  4. Paste
+
+  ## Run on Google Colab
+  1. Open a new notebook on [Google Colab](https://colab.new)
+  2. Paste the below command to install the package and run the cell
+  ```
+  !pip install ${ current_repo['name'] }
+  ```
+  4. You can now run the script by simply pasting and running the below in a different cell
+  
   ```
   ${ current_repo['name'] }
   % for arg in args:
     % if arg['flag']:
       ${ "--" + arg['name'] }
-    % else:
-      ${ arg['name'] }
     % endif
     ${ all_variables()[arg['name']] }
   % endfor
   ```
-  and hit play
   
   % if current_repo['readme']:
   ${ display_template(template, scrollable=True, collapse=True) }
