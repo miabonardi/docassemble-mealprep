@@ -15,6 +15,8 @@ code: |
 continue button field: show_args
 question: |
   ${ current_repo['name'] }
+subquestion: |
+  Below are the inputs this application requires:
 fields: 
   code: arg_fields
 ---
@@ -52,9 +54,10 @@ subquestion: |
 code: |
   arg_fields = []
   
-  for arg in args: 
+  for arg in args:
+    label_arg = "--" + arg['name'] if arg['flag'] else arg['name']
     arg_fields.append({
-      "label": arg.get("help_text", "Developer didn't add help text :("),
+      "label": label_arg + " " + arg.get("help_text", "Developer didn't add help text :("),
       "field": arg['name'].replace("-","_")
     })
 ---
