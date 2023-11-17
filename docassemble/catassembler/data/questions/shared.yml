@@ -18,5 +18,8 @@ code: |
 ---
 default screen parts:
   pre: |
-  
+---
+objects:
+  - al_logo: DAStaticFile.using(filename="oven-svgrepo-com.svg")
+---
   
