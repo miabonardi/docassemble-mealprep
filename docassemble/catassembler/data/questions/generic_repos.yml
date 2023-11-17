@@ -18,10 +18,13 @@ question: |
 fields: 
   code: arg_fields
 ---
-continue button field: arg_download
+event: arg_download
 question: |
-  Download
+  Next steps
 subquestion: |
+  1. Open [Google Colab](https://colab.new)
+  2. Paste ```!pip install ${ current_repo['name'] }``` and hit play
+  4. Paste
   ```
   ${ current_repo['name'] }
   % for arg in args:
@@ -33,6 +36,7 @@ subquestion: |
     ${ all_variables()[arg['name']] }
   % endfor
   ```
+  and hit play
 --- 
 code: |
   arg_fields = []
