@@ -37,6 +37,12 @@ subquestion: |
   % endfor
   ```
   and hit play
+  
+  % if current_repo['readme']:
+  ${ display_template(template, scrollable=True, collapse=True) }
+  % endif
+  
+  ${ action_button_html(current_repo['url'], label="View on Github") }
 --- 
 code: |
   arg_fields = []

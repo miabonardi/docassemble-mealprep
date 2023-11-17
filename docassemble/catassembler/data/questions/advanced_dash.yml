@@ -14,7 +14,7 @@ features:
 question: |
   Meal Prep 
 subquestion: |
-  User interface for python command line tools.
+  User interface for python command line tools, urls, and markdown template files.
 field: dashboard
 buttons:
   code: |
