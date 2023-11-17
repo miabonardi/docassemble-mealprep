@@ -5,13 +5,33 @@ include:
 mandatory: True
 question: |
   Use instagram-location-search
+subquestion: |
+  Multiple types of output can be generated at the same time.
 fields:
-  - cookie: cookie
-  - json: json
-  - geojson: geojson
-  - map: map
-  - csv: csv
-  - lat: lat
-  - lng: lng
-  - date: date
-  - ids: ids
+  - Latitude: lat
+    datatype: number
+  - Longitude: lng
+    datatype: number
+  - Date: date
+    datatype: ThreePartsDate
+  - Cookie: cookie
+    required: False
+  - Output formats: output
+    datatype: checkboxes
+    choices: 
+      - json: json
+        help: |
+          The list can be saved as a JSON file, almost identical to the raw API response.
+      - geojson: geojson
+        help: |
+          The list can be saved as a GeoJSON file for other geospatial applications.
+      - map: map
+        help: |
+          A simple Leaflet map is made to visualize the locations of the returned points.
+      - csv: csv
+        help: |
+          The list of locations is saved as a CSV file.
+      - ids: ids
+        help: |
+          All the found location IDs are output, suitable to pass into another tool.
+    none of the above: False
