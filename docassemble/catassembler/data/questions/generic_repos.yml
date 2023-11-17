@@ -4,6 +4,7 @@ include:
 ---
 modules:
   - .get_repositories
+  - .parse_cli_args
 ---
 mandatory: True
 question: |
@@ -18,6 +19,10 @@ subquestion: |
   % endif
   
   ${ action_button_html(current_repo['url'], label="View on Github") }
+  
+  % if current_repo['name'] == "instagram-location-search":
+  ${ action_button_html(interview_url(i=user_info().package + ":instagram-location-search.yml", reset=1), label="Run instagram-location-search") }
+  % endif
  
 ---
 template: template
@@ -32,4 +37,6 @@ code: |
   for repo in repos: 
     if url_args.get('name') == repo['name']:
       current_repo = repo
+      
+  args = get_cli_args(current_repo)
 ---
