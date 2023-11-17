@@ -36,7 +36,7 @@ subquestion: |
   3. In a new code cell, paste this script and select the play button:
   
   ```
-  ${ current_repo['name'] }
+  !${ current_repo['name'] }
   % for arg in args:
     % if arg['flag']:
       ${ "--" + arg['name'] }
