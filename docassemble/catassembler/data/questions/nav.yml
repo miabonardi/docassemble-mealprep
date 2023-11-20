@@ -1,4 +1,0 @@
-default screen parts:
-  right: |
-    ${ action_button_html(interview_url(i=f"{user_info().package}:advanced_dash.yml"), label="Back to Dashboard") }
----
