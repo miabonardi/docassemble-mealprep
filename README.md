@@ -1,4 +1,4 @@
-# Meal Prep – a general UI platform for CLI-based Python script tools
+# Meal Prep – A general UI platform for CLI-based Python script tools
 
 ## Authors
 

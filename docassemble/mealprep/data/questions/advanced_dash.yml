@@ -1,0 +1,36 @@
+include:
+  - shared.yml
+---
+mandatory: True
+code: |
+  command('exit', url=dashboard)
+---
+modules:
+  - .get_repositories
+---
+features: 
+  css: al_dashboard.css
+---
+question: |
+  Meal Prep 
+subquestion: |
+  User interface for python command line tools, urls, and markdown template files.
+field: dashboard
+buttons:
+  code: |
+    myoptions + extra_mvp
+---
+code: |
+  extra_mvp = \
+    [{"http://ukraine.bellingcat.com/": "ukraine-timemap",
+      "image": "search"},
+     {"https://bellingcat.github.io/vis-tj-kg-map-2022/": "vis-tj-kg-map-2022",
+      "image": "search"}, 
+     {"${ interview_url(i=user_info().package + \":conduct_contributing.yml\", reset=1) }": ".github",
+      "image": "search"}]
+---
+code: |
+  myoptions = []
+  for repo in fetch_bellingcat_repos():
+    myoptions.append({ interview_url(i=user_info().package + ":generic_repos.yml", name=repo['name'], reset=1): repo['name'], "image": "search"}) 
+---
