@@ -5,10 +5,6 @@
 - Laurynas Keturakis, <laurynas.keturakis@gmail.com>
 - Mia Bonardi, <mia.e.bonardi@gmail.com>
 
-## Demo
-
-Try it out at: [apps.uiforcli.com](https://apps.uiforcli.com)
-
 ## **Disclaimer: Proof of Concept**
 
 This is ~~a 3-day rage-coded project~~ an early concept exploration that in order to work makes many assumptions about the underlying scripts.
